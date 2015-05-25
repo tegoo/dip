@@ -1,0 +1,105 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage[T2A]{fontenc}               % fonts
+\usepackage[utf8]{inputenc}             % UTF-8
+\usepackage[english,russian]{babel}     % russian
+\usepackage{cmap}                       % russian search in pdf
+\usepackage[14pt]{extsizes}             % for compatibility
+
+\usepackage{indentfirst}        % first string indention
+
+\usepackage{graphicx}           % graphics
+\usepackage{ltxtable}           % tables
+
+\usepackage{amsmath}            % math
+\usepackage{amsfonts}           % math fonts
+\usepackage{amssymb}            % math symb
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=3cm]{geometry}   % pagesize
+
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.9}
+
+\usepackage{soul}               % \so{} & \ul{} - source and underline
+\usepackage{soulutf8}           % UTF-8 for soul
+\usepackage{verbatim}           % \verb{} and verbatim environment
+\usepackage{listings}           % source code `bl
+\lstset{
+        escapeinside={\#@}{@},
+        extendedchars=\true,
+        numbers=left,
+        inputencoding=utf8,
+        keepspaces=true,
+        basicstyle=\footnotesize\ttfamily,
+        backgroundcolor=\color{light-gray},
+        tabsize=3
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}                              % clear header and footer
+\fancyfoot[C]{\thepage}                 % page number
+\renewcommand{\headrulewidth}{0pt}      % remove that line
+
+\linespread{1.4}                % line interval ~1.5
+\renewcommand{\rmdefault}{ftm}
+
+\newcommand\header[3]{          % `H {sub}{*}{TITLE}
+   \def \a {#1}
+   \def \b {sub}
+   \ifx\a\b
+   \subsection#2{#3}
+   \else
+   \section#2{#3}
+   \fi
+   \ifx x#2x
+   \else
+   \addcontentsline{toc}{#1section}{#3}
+   \fi
+}
+
+%% SPECIFIC PART
+%TODO implement some of this to latex.snippet
+% geometry -> 3cm left
+\usepackage[raggedright,sf]{titlesec}
+\usepackage{lipsum}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{placeins}
+\usepackage{totcount}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\frenchspacing
+\setcounter{page}{5} %TODO fix
+\bibliographystyle{utf8gost705u}
+\makeatletter % [1] -> 1.
+\renewcommand\@biblabel[1]{#1.}
+\makeatother
+\addto\captionsrussian{\def\refname{Библиографический список}}
+\regtotcounter{page}
+\regtotcounter{figure}
+\regtotcounter{table}
+\captionsetup{justification=centering,labelsep=period}
+\captionsetup[table]{aboveskip=0pt,belowskip=0pt}
+%% END OF SPECIFIC PART
+
+\begin{document}
+\tableofcontents
+\clearpage
+%\clearpage
+%\input{intro.tex}
+%\FloatBarrier
+%\clearpage
+
+\header{}{*}{Введение}
+
+\cite{ssim}
+
+\addcontentsline{toc}{section}{Библиографический список}
+\bibliography{bibliography}
+\clearpage
+\input{appendix.tex}
+\end{document}
