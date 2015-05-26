@@ -1,7 +1,7 @@
 
 BUILD_DIR 	= build
 MAIN_TEX	= main.tex
-SRC 		= $(wildcard *.c)
+SRC 		= $(wildcard *.tex)
 JOB_NAME	= output
 
 all: view

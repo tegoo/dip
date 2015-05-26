@@ -1,7 +1,7 @@
 \documentclass[14pt]{extarticle}
 
 \usepackage[T2A]{fontenc}               % fonts
-\usepackage[utf8]{inputenc}             % UTF-8
+\usepackage[utf8x]{inputenc}             % UTF-8
 \usepackage[english,russian]{babel}     % russian
 \usepackage{cmap}                       % russian search in pdf
 \usepackage[14pt]{extsizes}             % for compatibility
@@ -17,7 +17,7 @@
 \usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=3cm]{geometry}   % pagesize
 
 \usepackage{color}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 \definecolor{light-gray}{gray}{0.9}
 
 \usepackage{soul}               % \so{} & \ul{} - source and underline
@@ -39,15 +39,18 @@
 \pagestyle{fancy}
 \fancyhf{}                              % clear header and footer
 \fancyfoot[C]{\thepage}                 % page number
-\renewcommand{\headrulewidth}{0pt}      % remove that line
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+%\fancyhead[HR]{\slshape \leftmark}
+\fancyhead[HL]{\footnotesize{\scshape \leftmark}}
+\fancyhead[HR]{\footnotesize{\scshape\nouppercase{\rightmark}}}
 
-\linespread{1.4}                % line interval ~1.5
+
+
+\linespread{1.5}                % line interval ~1.5
 \renewcommand{\rmdefault}{ftm}
 
-
 %% SPECIFIC PART
-%TODO implement some of this to latex.snippet
-% geometry -> 3cm left
 \usepackage[raggedright,sf]{titlesec}
 \usepackage{lipsum}
 \usepackage{multirow}
@@ -60,12 +63,12 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \frenchspacing
-\setcounter{page}{5} %TODO fix
+\setcounter{page}{1} %TODO fix
 \bibliographystyle{utf8gost705u}
 \makeatletter % [1] -> 1.
 \renewcommand\@biblabel[1]{#1.}
 \makeatother
-\addto\captionsrussian{\def\refname{Библиографический список}}
+\addto\captionsrussian{\def\refname{}}
 \regtotcounter{page}
 \regtotcounter{figure}
 \regtotcounter{table}
@@ -74,20 +77,41 @@
 %% END OF SPECIFIC PART
 
 
-
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 \begin{document}
-\tableofcontents
-\clearpage
 
-\section{Введение}
-\input{intro.tex}
-\FloatBarrier
-\clearpage
+	\tableofcontents
+	\clearpage
 
-\nocite{*}
+	\section{Введение}
+	\input{intro.tex}
+	\FloatBarrier
+	\clearpage
 
-\addcontentsline{toc}{section}{Библиографический список}
-\bibliography{bibliography}
-\clearpage
+	\section{Существующие подходы}
+	\input{review.tex}
+	\FloatBarrier
+	\clearpage
+
+	\section{Разработанный подход}
+	\input{concept.tex}
+	\FloatBarrier
+	\clearpage
+
+	\section{Практическая реализация}
+	\input{practice.tex}
+	\FloatBarrier
+	\clearpage
+
+	\section{Результат}
+	\input{result.tex}
+	\FloatBarrier
+	\clearpage
+
+	\section{Библиографический список}
+	\bibliography{bibliography}
+	\clearpage
+
 \end{document}
