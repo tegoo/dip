@@ -44,19 +44,6 @@
 \linespread{1.4}                % line interval ~1.5
 \renewcommand{\rmdefault}{ftm}
 
-\newcommand\header[3]{          % `H {sub}{*}{TITLE}
-   \def \a {#1}
-   \def \b {sub}
-   \ifx\a\b
-   \subsection#2{#3}
-   \else
-   \section#2{#3}
-   \fi
-   \ifx x#2x
-   \else
-   \addcontentsline{toc}{#1section}{#3}
-   \fi
-}
 
 %% SPECIFIC PART
 %TODO implement some of this to latex.snippet
@@ -83,18 +70,22 @@
 \regtotcounter{figure}
 \regtotcounter{table}
 \captionsetup{justification=centering,labelsep=period}
-\captionsetup[table]{aboveskip=0pt,belowskip=0pt}
+%\captionsetup[table]{aboveskip=0pt,belowskip=0pt}
 %% END OF SPECIFIC PART
+
+
+
 
 \begin{document}
 \tableofcontents
 \clearpage
-%\clearpage
-%\input{intro.tex}
-%\FloatBarrier
-%\clearpage
 
-\header{}{*}{Введение}
+\section{Введение}
+\input{intro.tex}
+\FloatBarrier
+\clearpage
+
+\nocite{*}
 
 \addcontentsline{toc}{section}{Библиографический список}
 \bibliography{bibliography}
