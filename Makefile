@@ -12,11 +12,11 @@ view: compile
 compile: $(BUILD_DIR)/$(JOB_NAME).pdf
 
 $(BUILD_DIR)/$(JOB_NAME).pdf: $(BUILD_DIR) $(SRC)
-	xetex -jobname=$(JOB_NAME) -output-directory $(BUILD_DIR) $(MAIN_TEX)
-	xetex -jobname=$(JOB_NAME) -output-directory $(BUILD_DIR) $(MAIN_TEX)
+	pdflatex -jobname=$(JOB_NAME) -output-directory $(BUILD_DIR) $(MAIN_TEX)
+	pdflatex -jobname=$(JOB_NAME) -output-directory $(BUILD_DIR) $(MAIN_TEX)
 	bibtex8 -B -c utf8cyrillic.csf $(BUILD_DIR)/$(JOB_NAME).aux
-	xetex -jobname=$(JOB_NAME) -output-directory $(BUILD_DIR) $(MAIN_TEX)
-	xetex -jobname=$(JOB_NAME) -output-directory $(BUILD_DIR) $(MAIN_TEX)
+	pdflatex -jobname=$(JOB_NAME) -output-directory $(BUILD_DIR) $(MAIN_TEX)
+	pdflatex -jobname=$(JOB_NAME) -output-directory $(BUILD_DIR) $(MAIN_TEX)
 
 $(BUILD_DIR):
 	mkdir $(BUILD_DIR)
