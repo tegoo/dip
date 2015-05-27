@@ -39,15 +39,15 @@
 \pagestyle{fancy}
 \fancyhf{}                              % clear header and footer
 \fancyfoot[C]{\thepage}                 % page number
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
 %\fancyhead[HR]{\slshape \leftmark}
-\fancyhead[HL]{\footnotesize{\scshape \leftmark}}
-\fancyhead[HR]{\footnotesize{\scshape\nouppercase{\rightmark}}}
+%\fancyhead[HL]{\footnotesize{\scshape \leftmark}}
+%\fancyhead[HR]{\footnotesize{\scshape\nouppercase{\rightmark}}}
 
 
 
-\linespread{1.5}                % line interval ~1.5
+\linespread{1.4}                % line interval ~1.5
 \renewcommand{\rmdefault}{ftm}
 
 %% SPECIFIC PART
@@ -79,6 +79,8 @@
 
 \usepackage{tocloft}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
 
 \begin{document}
 
