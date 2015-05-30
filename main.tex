@@ -1,13 +1,11 @@
 \documentclass[14pt]{extarticle}
 
+\usepackage{pscyr}
 \usepackage[T2A]{fontenc}               % fonts
 \usepackage[utf8x]{inputenc}             % UTF-8
 \usepackage[english,russian]{babel}     % russian
 \usepackage{cmap}                       % russian search in pdf
 \usepackage[14pt]{extsizes}             % for compatibility
-
-\usepackage{textcomp}
-\usepackage{times}
 
 \usepackage{indentfirst}        % first string indention
 
@@ -55,6 +53,7 @@
 
 %% SPECIFIC PART
 \usepackage[raggedright,sf]{titlesec}
+%\titlelabel{\thetitle.\quad}
 \usepackage{lipsum}
 \usepackage{multirow}
 \usepackage{tabularx}
@@ -84,6 +83,10 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 \newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+
+\usepackage{secdot}
+\sectiondot{subsection}
+\sectiondot{subsubsection}
 
 \begin{document}
 
